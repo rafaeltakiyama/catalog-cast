@@ -8,7 +8,7 @@ body {
     "colorbar colorbar colorbar"
     "article article article"
     "footer footer footer";
-  grid-template-rows: 8% 0.5% 83.5% 8%;
+  grid-template-rows: 8.5% 0.5% 83% 8%;
   grid-template-columns: 0% 100% 0%;
   height: 100vh;
   margin: 0;
@@ -33,13 +33,14 @@ colorbar {
   background-image: linear-gradient(to right, #ffff4a 0%, #fcd000 7%, #ffc112 11%, #ff8a00 17%, #ff5f5f 23%, #ff5156 29%, #ff7ae7 35%, #ff5193 41%, #c739ff 46%, #a400e1 63%, #2eceff 76%, #0086ff 87%, #72f772 97%, #00d604);
 }
 header, footer {
-  padding: 25px;
   background: #3286FF;
   font-family: arial, tahoma, verdana, sans-serif;
 }
 .product_description{          
-  font-size: 150%;
+  font-size: 140%;
   color: #FFFFFF;
+  padding-top: 30px;
+  padding-left: 30px;
 }
 #over {
   position:relative; 
@@ -55,6 +56,8 @@ header, footer {
     left: 0;
     right: 0;
     bottom: 0;
+    width: 40%;
+    height: auto;
 }
 </style>
 <body>
@@ -83,7 +86,7 @@ header, footer {
   <colorbar id="pageColorbar"></colorbar>
   <article id="mainArticle">
     <div id="over">
-      <img id="product_img">
+      <img id="product_img" src="https://a-static.mlcdn.com.br/1500x700/smartphone-samsung-galaxy-j4-32gb-cobre-4g-2gb-ram-tela-6-cam-13mp-cam-selfie-5mp/magazineluiza/155544800/f279b6e1f16c47fe5ae5b7750d283a3b.jpg">
     </div>
   </article>
   <footer id="pageFooter"></footer>
