@@ -1,29 +1,90 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Catalog Cast</title>
-  </head>
-  <body style="background-color:#0D86FF;">
+<!DOCTYPE html>
+<title>Catalog Cast</title>
+<style>
+body { 
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "colorbar colorbar colorbar"
+    "article article article"
+    "footer footer footer";
+  grid-template-rows: 8% 0.5% 83.5% 8%;
+  grid-template-columns: 0% 100% 0%;
+  height: 100vh;
+  margin: 0;
+  }
+#pageHeader {
+  grid-area: header;
+}
+#pageColorbar {
+  grid-area: colorbar;
+}
+#pageFooter {
+  grid-area: footer;
+}
+#mainArticle { 
+  grid-area: article;      
+}
+article {
+  padding: 20px;
+  background: #FFFFFF;
+}
+colorbar {
+  background-image: linear-gradient(to right, #ffff4a 0%, #fcd000 7%, #ffc112 11%, #ff8a00 17%, #ff5f5f 23%, #ff5156 29%, #ff7ae7 35%, #ff5193 41%, #c739ff 46%, #a400e1 63%, #2eceff 76%, #0086ff 87%, #72f772 97%, #00d604);
+}
+header, footer {
+  padding: 25px;
+  background: #3286FF;
+  font-family: arial, tahoma, verdana, sans-serif;
+}
+.product_description{          
+  font-size: 150%;
+  color: #FFFFFF;
+}
+#over {
+  position:relative; 
+  text-align:center; 
+  width:100%; 
+  height:100%;
+}
 
-    <div id="content"></div>
+#over img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+</style>
+<body>
 
-    <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-          var ctx = cast.framework.CastReceiverContext.getInstance();
-          var options = new cast.framework.CastReceiverOptions();
-          var CHANNEL = 'urn:x-cast:br.com.rafaeltakiyama.catalogcast';
-          options.customNamespaces = Object.assign({});
-          options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.JSON;
-          ctx.addCustomMessageListener(CHANNEL, function(customEvent) {
-            var message = customEvent.data
-            console.log("Message received from " + 
-                        "[" +  customEvent.senderId +  "] " +
-                        ": " + message);
-            document.getElementById("content").innerHTML = message;
-          });
-          ctx.start(options);
-        }
-    </script>
-  </body>
-</html>
+  <script src="//www.gstatic.com/cast/sdk/libs/caf_receiver/v3/cast_receiver_framework.js"></script>
+  <script type="text/javascript">
+      window.onload = function () {
+        var ctx = cast.framework.CastReceiverContext.getInstance();
+        var options = new cast.framework.CastReceiverOptions();
+        var CHANNEL = 'urn:x-cast:br.com.rafaeltakiyama.catalogcast';
+        options.customNamespaces = Object.assign({});
+        options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.JSON;
+        ctx.addCustomMessageListener(CHANNEL, function(customEvent) {
+          var product = customEvent.data
+          console.log("Message received from " + 
+                      "[" +  customEvent.senderId +  "] " +
+                      ": " + product);
+          document.getElementById("pageHeader").innerHTML = product.description;
+          document.getElementById("product_img").src = product.img;
+        });
+        ctx.start(options);
+      }
+  </script>
+
+  <header id="pageHeader" class="product_description"></header>
+  <colorbar id="pageColorbar"></colorbar>
+  <article id="mainArticle">
+    <div id="over">
+      <img id="product_img">
+    </div>
+  </article>
+  <footer id="pageFooter"></footer>
+</body>
