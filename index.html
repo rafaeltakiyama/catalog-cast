@@ -8,7 +8,7 @@ body {
     "colorbar colorbar colorbar"
     "article article article"
     "footer footer footer";
-  grid-template-rows: 8.5% 0.5% 83% 8%;
+  grid-template-rows: 100px 0.5% 83% 8%;
   grid-template-columns: 0% 100% 0%;
   height: 100vh;
   margin: 0;
@@ -34,13 +34,14 @@ colorbar {
 }
 header, footer {
   background: #3286FF;
+  text-align:center;
   font-family: arial, tahoma, verdana, sans-serif;
 }
 .product_description{          
   font-size: 140%;
   color: #FFFFFF;
-  padding-top: 30px;
-  padding-left: 30px;
+  line-height: 100px;
+  vertical-align:middle;
 }
 #over {
   position:relative; 
@@ -48,7 +49,6 @@ header, footer {
   width:100%; 
   height:100%;
 }
-
 #over img{
     position: absolute;
     margin: auto;
@@ -56,7 +56,7 @@ header, footer {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 40%;
+    width: 50%;
     height: auto;
 }
 </style>
