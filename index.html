@@ -12,7 +12,7 @@
         window.onload = function () {
           var ctx = cast.framework.CastReceiverContext.getInstance();
           var options = new cast.framework.CastReceiverOptions();
-          var CHANNEL = 'urn:x-cast:br.com.rafaeltakiyama.catalog-cast';
+          var CHANNEL = 'urn:x-cast:br.com.rafaeltakiyama.catalogcast';
           options.customNamespaces = Object.assign({});
           options.customNamespaces[CHANNEL] = cast.framework.system.MessageType.JSON;
           ctx.addCustomMessageListener(CHANNEL, function(customEvent) {
